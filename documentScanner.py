@@ -1,10 +1,11 @@
+import urllib
 import cv2
 import numpy as np
 
 widthImg = 540
 heightImg = 640
 kernel = np.ones((5, 5))
-
+url='http://192.168.0.107:8080/shot.jpg'
 cam = cv2.VideoCapture(0)
 # cam.set(3, widthImg)
 # cam.set(4, heightImg)
@@ -100,6 +101,7 @@ def stackImages(scale, imgArray):
 
 
 while True:
+
     success, img = cam.read()
     img = cv2.resize(img, (widthImg, heightImg))
     imgContour = img.copy()
